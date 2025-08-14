@@ -14,8 +14,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Supabase CLI
+      - name: Install Supabase CLI (latest)
         uses: supabase/setup-cli@v1
+        with:
+          version: latest
+
+      - name: Show Supabase CLI version
+        run: supabase --version
 
       - name: Link to Supabase project
         run: supabase link --project-ref "$SUPABASE_PROJECT_REF"
